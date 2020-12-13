@@ -1,37 +1,155 @@
-[IRC]
+[telegram.mytelegram]
+#See https://core.telegram.org/bots#6-botfather 
+#and https://www.linkedin.com/pulse/telegram-bots-beginners-marco-frau
+Token="1344628885:AAFj6Gy_CT1Ca8mWDcSksLhoPe0SLbn1O7U"
+RemoteNickFormat="({PROTOCOL}) &lt;{NICK}&gt; "
+MessageFormat="HTMLNick"
 
-Enable=true
-Server="${IRC_SERVER}"
-Nick="${IRC_NICK}"
-UseTLS=${IRC_USE_TLS}
-UseSASL=${IRC_USE_SASL}
-SkipTLSVerify=${IRC_SKIP_TLS_VERIFY}
-NickServNick="${IRC_NICKSERV_NICK}"
-NickServPassword="${IRC_NICKSERV_PASSWORD}"
-RemoteNickFormat="${IRC_REMOTE_NICK_FORMAT}"
-IgnoreNicks="${IRC_IGNORE_NICKS}"
+[whatsapp.mywhatsapp]
+# Number you will use as a relay bot. Tip: Get some disposable sim card, don't rely on 
+# your own number.
+Number="+12345293588"
 
-[mattermost]
+# First time that you login you will need to scan QR code, then credentials will be saved in 
+# a session file. 
+# If you won't set SessionFile then you will need to scan QR code on every restart.
+# optional (by default the session is stored only in memory, till restarting matterbridge)
+SessionFile="session-48111222333.gob"
 
-Enable=true
-Server="${MATTERMOST_SERVER}"
-Team="${MATTERMOST_TEAM}"
-Login="${MATTERMOST_BOT_LOGIN}"
-Password="$MATTERMOST_BOT_PASSWORD}"
-NoTLS=${MATTERMOST_NO_TLS}
-SkipTLSVerify=${MATTERMOST_SKIP_TLS_VERIFY}
-ShowJoinPart=${MATTERMOST_SHOW_JOIN_PART}
-PrefixMessagesWithNick=${MATTERMOST_PREFIX_MSG_WITH_NICK}
-RemoteNickFormat="${MATTERMOST_REMOTE_NICK_FORMAT}"
-NickFormatter="${MATTERMOST_NICK_FORMATTER}"
-NicksPerRow=${MATTERMOST_NICKS_PER_ROW}
-IgnoreNicks="${MATTERMOST_IGNORE_NICKS}"
+# If your terminal is white we need to invert QR code in order for it to be scanned properly
+# optional (default false)
+QrOnWhiteTerminal=false
 
-[Channel "channel-1"]
+# Messages will be seen by other WhatsApp contacts as coming from the bridge. 
+# Original nick will be part of the message.
+RemoteNickFormat="[{PROTOCOL}] @{NICK}: "
 
-IRC="${IRC_CHANNEL}"
-mattermost="${MATTERMOST_CHANNEL}"
+# 100%
+[[gateway]]
+name="gateway1"
+enable=true
 
-[general]
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001267619718"
 
-Plus=true
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="12345293588-1607883727@g.us"
+
+# PVP GREAT
+[[gateway]]
+name="gateway2"
+enable=true
+
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001348048204"
+
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="5512988141267-1607889345@g.us"
+
+# PVP PERFEITO
+[[gateway]]
+name="gateway3"
+enable=true
+
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001373886290"
+
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="5512988141267-1607890523@g.us"
+
+# RARISSIMOS
+[[gateway]]
+name="gateway4"
+enable=true
+
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001250665351"
+
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="5512988141267-1607890443@g.us"
+
+# PVP Ultra
+[[gateway]]
+name="gateway5"
+enable=true
+
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001473956065"
+
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="5512988141267-1607890638@g.us"
+
+# 95%
+[[gateway]]
+name="gateway6"
+enable=true
+
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001478102259"
+
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="5512988141267-1607890167@g.us"
+
+# 90%
+[[gateway]]
+name="gateway7"
+enable=true
+
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001432075218"
+
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="5512988141267-1607890326@g.us"
+
+# RAIDS EX
+[[gateway]]
+name="gateway8"
+enable=true
+
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001170112252"
+
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="5512988141267-1607891223@g.us"
+
+# 0%
+[[gateway]]
+name="gateway9"
+enable=true
+
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001267038895"
+
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="5512988141267-1607890813@g.us"
+
+# Raros
+[[gateway]]
+name="gateway10"
+enable=true
+
+[[gateway.inout]]
+account="telegram.mytelegram"
+channel="-1001166329115"
+
+[[gateway.inout]]
+account="whatsapp.mywhatsapp"
+channel="5512988141267-1607890393@g.us"
